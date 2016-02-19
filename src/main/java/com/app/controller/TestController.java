@@ -15,8 +15,5 @@ public class TestController {
 		
 		System.out.println("Here");
         User user = new User();
-        
-        
-        
 	}
 }
