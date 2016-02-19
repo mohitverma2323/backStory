@@ -1,52 +1,65 @@
 package com.app.pojo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
 
 	@Id
-	String userId;
-	
-	String fName;
-	
-	String lName;
-	
-	String Email;
+	private String userName;
+	@Column
+	private String firstName;
+	@Column
+	private String lastName;
+	@Column
+	private String email;
+	@Column
+	private String password;
 
-	public User()
-	{
-	
-	}
-	
-	public String getfName() {
-		return fName;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setfName(String fName) {
-		this.fName = fName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getlName() {
-		return lName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public void setlName(String lName) {
-		this.lName = lName;
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
-	
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+		String newPassword=encoder.encode(password);
+		this.password = newPassword;
+	}
+
 }
