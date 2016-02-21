@@ -2,6 +2,10 @@ package com.app.processing;
 
 public class StoryTrimmer {
 	private String editedStory;
+	private int wordCount = 0;
+	public int getWordCount() {
+		return wordCount;
+	}
 
 	public StoryTrimmer() {
 		editedStory = "";
@@ -13,7 +17,7 @@ public class StoryTrimmer {
 
 	public void finalCutForStory(String uneditedStory) {
 		uneditedStory.trim();
-		int wordCount = 0;
+		
 		int length = uneditedStory.length();
 		for (int i = 1; i < length; i++) {
 			char c = uneditedStory.charAt(i);
