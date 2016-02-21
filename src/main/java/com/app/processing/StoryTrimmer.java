@@ -21,7 +21,7 @@ public class StoryTrimmer {
 				c=' ';
 			if (c != ' ')
 				editedStory += c;
-			else if (c == ' ' && uneditedStory.charAt(i - 1) == ' ')
+			else if (c == ' ' && (uneditedStory.charAt(i - 1) == ' ' || uneditedStory.charAt(i-1)=='\t'))
 				continue;
 			else {
 				wordCount++;
