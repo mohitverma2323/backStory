@@ -9,6 +9,13 @@ import com.app.service.LoginAuthenticationService;
 
 @Controller
 public class LoginController {
+	static {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	@Autowired 
 	private LoginAuthenticationService loginAuthenticationService; 
 	@RequestMapping("/login")

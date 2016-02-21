@@ -10,13 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TestController {
 	
-	static {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+	
 	
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
