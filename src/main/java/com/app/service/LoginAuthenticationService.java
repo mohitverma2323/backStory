@@ -16,7 +16,7 @@ public class LoginAuthenticationService {
 		User user = loginDao.getUserDetails(userName);
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String encryptedPassword = encoder.encode(password);
-		if (user.getPassword().equals(encryptedPassword) && password != null)
+		if (password != null && user.getPassword().equals(encryptedPassword))
 			return true;
 		return false;
 	}
