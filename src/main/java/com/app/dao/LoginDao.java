@@ -3,8 +3,10 @@ package com.app.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.app.pojo.User;
+import org.springframework.stereotype.Component;
 
+import com.app.pojo.User;
+@Component
 public class LoginDao {
 	@PersistenceContext
 	private EntityManager entityManager;
