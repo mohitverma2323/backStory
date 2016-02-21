@@ -1,4 +1,4 @@
-package com.app.processing;
+package com.app.processing;	
 
 public class StoryTrimmer {
 	private String editedStory;
