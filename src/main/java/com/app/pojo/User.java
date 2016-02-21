@@ -6,18 +6,20 @@ import javax.persistence.Id;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.google.gson.Gson;
+
 @Entity
 public class User {
 
 	@Id
 	private String userName;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String firstName;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String lastName;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String email;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String password;
 
 	public String getUserName() {
@@ -57,9 +59,15 @@ public class User {
 	}
 
 	public void setPassword(String password) {
-		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-		String newPassword=encoder.encode(password);
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		String newPassword = encoder.encode(password);
 		this.password = newPassword;
+	}
+
+	@Override
+	public String toString() {
+		Gson gson = new Gson();
+		return gson.toJson(this);
 	}
 
 }
