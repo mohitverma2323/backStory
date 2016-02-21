@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.google.gson.Gson;
+
 @Entity
 @Table(name = "Stories")
 public class Story {
@@ -53,8 +55,8 @@ public class Story {
 	}
 	@Override
 	public String toString() {
-		return "{ storyId=" + storyId + ", storyTitle=" + storyTitle + ", storyContent=" + storyContent
-				+ ", storyAuthor=" + storyAuthor + ", timeRequired=" + timeRequired + "} n";
+		Gson gson = new Gson();
+		return gson.toJson(this);
 	}
 	
 
