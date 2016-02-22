@@ -1,5 +1,6 @@
 package com.app.manager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -24,11 +25,12 @@ public class StoryManager {
 	}
 
 	public Story findStory(Story story) {
-		List<Story> storyList = (List<Story>) storyDao.findStory(story.getTimeRequired());
+		/*ArrayList<Story> storyList = (ArrayList<Story>) storyDao.findStory(story.getTimeRequired());
+		System.out.println(storyList.get(0).toString());
 		int size = storyList.size();
 		Random randomNumber = new Random();
-		int randomStory = randomNumber.nextInt(size);
-		return storyList.get(randomStory);
+		int randomStory = randomNumber.nextInt(size);*/
+		return storyDao.findStory(story.getTimeRequired());
 	}
 
 	public void addNewStoryFromUSer(Story story, User user) {

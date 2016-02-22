@@ -10,7 +10,6 @@ import javax.persistence.Table;
 import com.google.gson.Gson;
 
 @Entity
-@Table(name = "Stories")
 public class Story {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
@@ -55,9 +54,10 @@ public class Story {
 	}
 	@Override
 	public String toString() {
-		Gson gson = new Gson();
-		return gson.toJson(this);
+		return "Story [storyId=" + storyId + ", storyTitle=" + storyTitle + ", storyContent=" + storyContent
+				+ ", storyAuthor=" + storyAuthor + ", timeRequired=" + timeRequired + "]";
 	}
+	
 	
 
 }
