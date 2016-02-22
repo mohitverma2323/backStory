@@ -14,7 +14,7 @@ import com.google.gson.Gson;
 
 @Controller
 public class StoryController {
-	@Autowired
+	@Autowired(required=true)
 	private StoryManager storyManager;
 	
 	@RequestMapping(value="/getStory", method=RequestMethod.GET)
@@ -23,7 +23,7 @@ public class StoryController {
 		return generatedStory.toString();
 	}
 	
-	@RequestMapping(value="",method=RequestMethod.POST)
+	@RequestMapping(value="/uploadStory",method=RequestMethod.POST)
 	public @ResponseBody String uploadStory(@RequestBody Story story){
 		storyManager.addNewStoryFromUSer(story, null);
 		Gson gson=new Gson();
