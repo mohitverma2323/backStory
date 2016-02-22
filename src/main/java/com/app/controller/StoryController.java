@@ -10,14 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.manager.StoryManager;
 import com.app.pojo.Story;
-import com.google.gson.Gson;
-
 @Controller
 public class StoryController {
 	@Autowired(required=true)
 	private StoryManager storyManager;
 	
-	@RequestMapping(value="/getStory", method=RequestMethod.GET)
+	@RequestMapping(value="/getStory", method=RequestMethod.POST)
 	public @ResponseBody String findStoryByTime(@RequestParam Story story){
 		Story generatedStory =storyManager.findStory(story);
 		return generatedStory.toString();
@@ -26,7 +24,7 @@ public class StoryController {
 	@RequestMapping(value="/uploadStory",method=RequestMethod.POST)
 	public @ResponseBody String uploadStory(@RequestBody Story story){
 		storyManager.addNewStoryFromUSer(story, null);
-		Gson gson=new Gson();
-		return gson.toJson(story);
+		
+		return story.toString();
 	}
 }

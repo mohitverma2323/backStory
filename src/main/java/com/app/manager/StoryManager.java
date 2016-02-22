@@ -17,7 +17,7 @@ public class StoryManager {
 	@Autowired
 	private StoryDao storyDao;
 
-	private void processStoryForUpload(Story story) {
+	public void processStoryForUpload(Story story) {
 		StoryTrimmer storyTrimmer = new StoryTrimmer();
 		storyTrimmer.finalCutForStory(story.getStoryContent());
 		story.setTimeRequired((storyTrimmer.getWordCount() / Constants.WORDS_READ_BY_AVERAGE_USER_IN_A_MINUTE) + 1);
