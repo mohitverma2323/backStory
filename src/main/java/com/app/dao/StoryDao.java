@@ -1,18 +1,15 @@
 package com.app.dao;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.pojo.Story;
-import com.app.utility.StoryQuery;
 
 @Component
 public class StoryDao {
